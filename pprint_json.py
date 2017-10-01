@@ -5,16 +5,16 @@ import pprint
 
 def load_data(filepath):
     try:
-        text = open(filepath, 'r')
-        json_data = json.loads(text.read())
+        file = open(filepath, 'r')
+        json_data = json.loads(file.read())
         pretty_print_json(json_data)
     finally:
-        text.close()
+        file.close()
 
 
 def pretty_print_json(data):
-    pp = pprint.PrettyPrinter(indent=1)
-    pp.pprint(data)
+    pretty_format_data = pprint.PrettyPrinter(indent=1)
+    pretty_format_data.pprint(data)
 
 
 if __name__ == '__main__':
