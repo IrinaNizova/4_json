@@ -1,24 +1,18 @@
 import json
-import sys
-import pprint
+import argparse
 
 
 def load_data(filepath):
-    try:
-        file_with_json = open(filepath, 'r')
-        json_data = json.loads(file_with_json.read())
-        pretty_print_json(json_data)
-    finally:
-        file_with_json.close()
+    with open(filepath, 'r') as file_with_json:
+        return json.loads(file_with_json.read())
 
 
 def pretty_print_json(json_data):
-    pretty_format_data = pprint.PrettyPrinter(indent=1)
-    pretty_format_data.pprint(json_data)
+    print(json.dumps(json_data, indent=2))
 
 
 if __name__ == '__main__':
-    if len(sys.argv) < 2:
-        print('you did not write file name')
-    else:
-        load_data(sys.argv[1])
+    parser = argparse.ArgumentParser()
+    parser.add_argument("file_name", help="write name of json file")
+    json_data = load_data(parser.parse_args().file_name)
+    pretty_print_json(json_data)
