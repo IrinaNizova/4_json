@@ -15,7 +15,6 @@ test.json
 
 ## Output 
 
----
 [
   {
     "WorkingHours": [
@@ -34,7 +33,6 @@ test.json
     ]
   }
 ]
----
 
 
 # Project Goals
